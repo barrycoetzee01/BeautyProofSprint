@@ -1,0 +1,1456 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-Day Beauty Business Proof Sprint - Execution Roadmap</title>
+    <style>
+        /* 
+        ============================================
+        CHANGELOG & SOURCE DOCUMENTS
+        ============================================
+        Generated: 2026-01-27
+        Source Documents:
+        1. 14_Day_Beauty_Proof_Sprint_Cheat_Sheet.pdf
+        2. Step_1_Local_Playbook.pdf
+        3. Step_2_Content_Frameworks.pdf
+        4. Step_3_Product_Design.pdf
+        ============================================
+        */
+
+        :root {
+            /* CSS Variables for easy theme customization */
+            --primary-color: #79a8a2;
+            --secondary-color: #126270;
+            --accent-color: #539e49;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+            --dark-bg: #1a1a2e;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --card-bg: #2d2d44;
+            --text-primary: #ecf0f1;
+            --text-secondary: #bdc3c7;
+            --border-color: #444;
+            --dark-bg: #16213e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header .executive-summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            max-width: 900px;
+        }
+
+        .header .meta-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .controls {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-target {
+            font-size: 0.85rem;
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        /* Objectives */
+        .objectives-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .objective-item {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .objective-number {
+            background: rgba(255,255,255,0.3);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Roadmap Timeline */
+        .roadmap {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 2rem;
+            min-width: max-content;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 0;
+        }
+
+        .phase {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phase-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .milestone {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .milestone:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .milestone-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .milestone-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .milestone-owner {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Process Flow Chart */
+        .flowchart-container {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+        }
+
+        .flowchart {
+            min-height: 400px;
+            position: relative;
+        }
+
+        .flow-node {
+            position: absolute;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            min-width: 180px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .flow-node:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+            z-index: 10;
+        }
+
+        .flow-node-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-node-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .flow-node-owner {
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .flow-tooltip {
+            position: absolute;
+            background: var(--dark-bg);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            max-width: 300px;
+            z-index: 100;
+            display: none;
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Tasks Table */
+        .table-container {
+            overflow-x: auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .priority-high {
+            background: var(--danger-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .priority-medium {
+            background: var(--warning-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .priority-low {
+            background: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-pending { background: #ffeaa7; color: #2d3436; }
+        .status-progress { background: #74b9ff; color: white; }
+        .status-complete { background: var(--success-color); color: white; }
+
+        /* Risk Matrix */
+        .risk-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .risk-cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .risk-low { background: #d4edda; color: #155724; }
+        .risk-medium { background: #fff3cd; color: #856404; }
+        .risk-high { background: #f8d7da; color: #721c24; }
+
+        .risk-list {
+            list-style: none;
+        }
+
+        .risk-item {
+            background: white;
+            border-left: 4px solid var(--warning-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .risk-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Next Steps */
+        .action-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .action-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .action-content {
+            display: none;
+        }
+
+        .action-content.active {
+            display: block;
+        }
+
+        .action-item {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .action-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-checkbox:hover {
+            background: var(--primary-color);
+        }
+
+        .action-details {
+            flex: 1;
+        }
+
+        .action-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .action-owner {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Document Source Map */
+        .source-map {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+
+        .source-item {
+            background: white;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        .source-filename {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .source-excerpt {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .source-usage {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        /* Utility Classes */
+        .placeholder {
+            background: #fff3cd;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .todo-badge {
+            background: var(--warning-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .controls, .btn {
+                display: none !important;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .controls {
+                position: static;
+                margin-top: 1rem;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .risk-container {
+                grid-template-columns: 1fr;
+            }
+
+            .action-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="controls">
+                <button class="btn btn-secondary" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <span id="theme-icon">🌙</span>
+                </button>
+                <button class="btn btn-primary" onclick="window.print()" aria-label="Print or export to PDF">
+                    📄 Print / Export PDF
+                </button>
+                <button class="btn btn-secondary" onclick="exportJSON()" aria-label="Export data as JSON">
+                    💾 Export JSON
+                </button>
+            </div>
+            <h1>14-Day Beauty Business Proof Sprint</h1>
+            <div class="executive-summary">
+                Launch your first beauty product with a single paying customer in 14 days using a focused execution framework. This sprint eliminates perfection paralysis by prioritizing speed, authenticity, and direct customer validation through social selling. The goal is simple: prove demand exists before scaling operations, using a hydrating niacinamide facial serum as the test product with strategic content marketing on TikTok and Instagram.
+            </div>
+            <div class="meta-info">
+                <strong>Last Updated:</strong> <span id="timestamp"></span> | 
+                <strong>Sprint Duration:</strong> 14 Days | 
+                <strong>Target Revenue:</strong> R50,000/month
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- KPI Dashboard -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3v18h18M7 16l4-4 4 4 5-6"/>
+                    </svg>
+                    Key Performance Indicators
+                </h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="#c2d64d" stroke-width="2">
+                            <circle cx="12" cy="8" r="4"/>
+                            <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                        </svg>
+                        <div class="kpi-value">1</div>
+                        <div class="kpi-label">First Paying Customer</div>
+                        <div class="kpi-target">Target: Day 11-14</div>
+                    </div>
+                    <div class="kpi-card">
+                        <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="#c2d64d" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        <div class="kpi-value">14</div>
+                        <div class="kpi-label">Daily Video Posts</div>
+                        <div class="kpi-target">Method: Short-form content (TikTok + Reels)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="#c2d64d" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                        <div class="kpi-value">R150</div>
+                        <div class="kpi-label">Product Price Point</div>
+                        <div class="kpi-target">Range: R120-R180</div>
+                    </div>
+                    <div class="kpi-card">
+                        <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="#c2d64d" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="kpi-value">&lt;100</div>
+                        <div class="kpi-label">Minimum Order Quantity</div>
+                        <div class="kpi-target">Measurement: Supplier MOQ compliance</div>
+                    </div>
+                    <div class="kpi-card">
+                        <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="#c2d64d" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                        <div class="kpi-value">R50k</div>
+                        <div class="kpi-label">Monthly Revenue Target</div>
+                        <div class="kpi-target">Frequency: Month 2-3 post-sprint</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategic Objectives -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    Strategic Objectives
+                </h2>
+                <div class="objectives-list">
+                    <div class="objective-item">
+                        <span class="objective-number">1</span>
+                        <span>Achieve first paying customer within 14 days to validate product-market fit before scaling operations</span>
+                    </div>
+                    <div class="objective-item">
+                        <span class="objective-number">2</span>
+                        <span>Build authentic trust through daily raw video content that prioritizes proof over polish and educates before selling</span>
+                    </div>
+                    <div class="objective-item">
+                        <span class="objective-number">3</span>
+                        <span>Launch one focused product (Hydrating Niacinamide Facial Serum) with visible results to establish clear market positioning</span>
+                    </div>
+                    <div class="objective-item">
+                        <span class="objective-number">4</span>
+                        <span>Scale to R50,000 monthly revenue through marketplace listings, reviews, and repeat customer acquisition</span>
+                    </div>
+                    <div class="objective-item">
+                        <span class="objective-number">5</span>
+                        <span>Execute lean operations without retail partnerships or large teams by leveraging social DMs and existing platforms</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap Timeline -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    Sprint Roadmap & Timeline
+                </h2>
+                <div class="roadmap">
+                    <div class="timeline">
+                        <div class="phase">
+                            <div class="phase-header">Phase 1: Product Sourcing<br>(Days 1-2)</div>
+                            <div class="milestone">
+                                <div class="milestone-title">Contact Suppliers</div>
+                                <div class="milestone-date">Day 1</div>
+                                <div class="milestone-owner">👤 Founder</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">Confirm MOQ &lt;100 & Ship &lt;14 days</div>
+                                <div class="milestone-date">Day 1-2</div>
+                                <div class="milestone-owner">👤 Founder</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">Order Product</div>
+                                <div class="milestone-date">Day 2</div>
+                                <div class="milestone-owner">👤 Founder</div>
+                            </div>
+                        </div>
+
+                        <div class="phase">
+                            <div class="phase-header">Phase 2: Testing & Content<br>(Days 3-5)</div>
+                            <div class="milestone">
+                                <div class="milestone-title">Use Serum Daily</div>
+                                <div class="milestone-date">Day 3-5</div>
+                                <div class="milestone-owner">👤 Founder/Creator</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">Film Raw Phone Clips</div>
+                                <div class="milestone-date">Day 3-5</div>
+                                <div class="milestone-owner">👤 Founder/Creator</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">1 Raw Video/Day</div>
+                                <div class="milestone-date">Day 3-5</div>
+                                <div class="milestone-owner">👤 Founder/Creator</div>
+                            </div>
+                        </div>
+
+                        <div class="phase">
+                            <div class="phase-header">Phase 3: Content Distribution<br>(Days 6-10)</div>
+                            <div class="milestone">
+                                <div class="milestone-title">Post Daily TikTok Video</div>
+                                <div class="milestone-date">Day 6-10</div>
+                                <div class="milestone-owner">👤 Founder/Creator</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">Cross-Post to Instagram Reels</div>
+                                <div class="milestone-date">Day 6-10</div>
+                                <div class="milestone-owner">👤 Founder/Creator</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">Soft DM Invite in Videos</div>
+                                <div class="milestone-date">Day 6-10</div>
+                                <div class="milestone-owner">👤 Founder/Creator</div>
+                            </div>
+                        </div>
+
+                        <div class="phase">
+                            <div class="phase-header">Phase 4: Sales Conversion<br>(Days 11-14)</div>
+                            <div class="milestone">
+                                <div class="milestone-title">Respond to All DMs</div>
+                                <div class="milestone-date">Day 11-14</div>
+                                <div class="milestone-owner">👤 Founder</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">Ask for Sale (R150)</div>
+                                <div class="milestone-date">Day 11-14</div>
+                                <div class="milestone-owner">👤 Founder</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-title">🎯 First Customer Acquired</div>
+                                <div class="milestone-date">Day 14</div>
+                                <div class="milestone-owner">👤 Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Flow Chart -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="9" y1="9" x2="15" y2="9"/>
+                        <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                    End-to-End Process Flow
+                </h2>
+                <div class="flowchart-container">
+                    <div class="flowchart" id="flowchart">
+                        <!-- Flow nodes will be positioned via JavaScript -->
+                    </div>
+                    <div class="flow-tooltip" id="flowTooltip"></div>
+                </div>
+            </section>
+
+            <!-- Process Steps Table -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11l3 3L22 4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                    Detailed Process Steps
+                </h2>
+                <div class="table-container">
+                    <table id="tasksTable">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">Step ↕</th>
+                                <th onclick="sortTable(1)">Owner ↕</th>
+                                <th onclick="sortTable(2)">Duration ↕</th>
+                                <th onclick="sortTable(3)">Priority ↕</th>
+                                <th onclick="sortTable(4)">Status ↕</th>
+                                <th onclick="sortTable(5)">Dependencies ↕</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Contact 3 suppliers maximum</td>
+                                <td>Founder</td>
+                                <td>1 day</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Confirm MOQ &lt;100 and shipping &lt;14 days</td>
+                                <td>Founder</td>
+                                <td>1 day</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Supplier contact</td>
+                            </tr>
+                            <tr>
+                                <td>Order product from fastest supplier</td>
+                                <td>Founder</td>
+                                <td>1 day</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Supplier confirmation</td>
+                            </tr>
+                            <tr>
+                                <td>Use serum twice daily and document</td>
+                                <td>Founder/Creator</td>
+                                <td>3 days</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Product received</td>
+                            </tr>
+                            <tr>
+                                <td>Film 1 raw video per day (no editing)</td>
+                                <td>Founder/Creator</td>
+                                <td>3 days</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Product testing</td>
+                            </tr>
+                            <tr>
+                                <td>Post daily video to TikTok + Instagram Reels</td>
+                                <td>Founder/Creator</td>
+                                <td>5 days</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Video content created</td>
+                            </tr>
+                            <tr>
+                                <td>Include soft DM invite in each video</td>
+                                <td>Founder/Creator</td>
+                                <td>5 days</td>
+                                <td><span class="priority-medium">MEDIUM</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Daily posting</td>
+                            </tr>
+                            <tr>
+                                <td>Respond to all DMs within 24 hours</td>
+                                <td>Founder</td>
+                                <td>4 days</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Content posted</td>
+                            </tr>
+                            <tr>
+                                <td>Present test batch offer: "R150. Want one?"</td>
+                                <td>Founder</td>
+                                <td>4 days</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>DM engagement</td>
+                            </tr>
+                            <tr>
+                                <td>Close first paying customer</td>
+                                <td>Founder</td>
+                                <td>4 days</td>
+                                <td><span class="priority-high">HIGH</span></td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>Sales conversations</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Risk Matrix -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    Risk Assessment & Mitigation
+                </h2>
+                <div class="risk-container">
+                    <div>
+                        <h3 style="margin-bottom: 1rem;">Risk Matrix</h3>
+                        <div class="risk-matrix">
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">Impact →<br>Likelihood ↓</div>
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">Low</div>
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">Medium</div>
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">High</div>
+                            
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">High</div>
+                            <div class="risk-cell risk-medium">Moderate</div>
+                            <div class="risk-cell risk-high">High</div>
+                            <div class="risk-cell risk-high">Critical</div>
+                            
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">Medium</div>
+                            <div class="risk-cell risk-low">Low</div>
+                            <div class="risk-cell risk-medium">Moderate</div>
+                            <div class="risk-cell risk-high">High</div>
+                            
+                            <div class="risk-cell" style="background: #e0e0e0; font-weight: 700;">Low</div>
+                            <div class="risk-cell risk-low">Low</div>
+                            <div class="risk-cell risk-low">Low</div>
+                            <div class="risk-cell risk-medium">Moderate</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 1rem;">Key Risks</h3>
+                        <ul class="risk-list">
+                            <li class="risk-item">
+                                <h4>Supplier Delays (High Impact, Medium Likelihood)</h4>
+                                <p><strong>Mitigation:</strong> Contact 3 suppliers simultaneously, confirm shipping timeline upfront, have backup supplier ready.</p>
+                            </li>
+                            <li class="risk-item">
+                                <h4>No DM Engagement (High Impact, Medium Likelihood)</h4>
+                                <p><strong>Mitigation:</strong> Post consistently for full 5 days, test different CTA styles, engage with comments proactively.</p>
+                            </li>
+                            <li class="risk-item">
+                                <h4>Content Perfectionism Paralysis (Medium Impact, High Likelihood)</h4>
+                                <p><strong>Mitigation:</strong> Enforce "no editing" rule, treat awkwardness as authenticity, set 30-min daily time limit for filming.</p>
+                            </li>
+                            <li class="risk-item">
+                                <h4>Price Resistance (Low Impact, Medium Likelihood)</h4>
+                                <p><strong>Mitigation:</strong> Frame as "tiny test batch," offer transparency on costs, emphasize exclusivity.</p>
+                            </li>
+                            <li class="risk-item">
+                                <h4>Platform Algorithm Changes (Medium Impact, Low Likelihood)</h4>
+                                <p><strong>Mitigation:</strong> Dual-platform strategy (TikTok + Instagram), focus on DM conversion not viral reach.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Steps Actions -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20"/>
+                    </svg>
+                    Action Plan: Next 30 / 90 / 180 Days
+                </h2>
+                <div class="action-tabs">
+                    <div class="action-tab active" onclick="switchTab('30')">📅 Next 30 Days</div>
+                    <div class="action-tab" onclick="switchTab('90')">📊 Next 90 Days</div>
+                    <div class="action-tab" onclick="switchTab('180')">🚀 Next 180 Days</div>
+                </div>
+
+                <div id="action-30" class="action-content active">
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Complete 14-Day Proof Sprint</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 14</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Secure first paying customer and document learnings</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 14</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Set up Takealot seller account</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 20</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Create product listing with photos and compliance info</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 28</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Build content library: 30 videos (before/after, routines, ingredients)</div>
+                            <div class="action-owner">Owner: Founder/Creator | Deadline: Day 30</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="action-90" class="action-content">
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Drive traffic to Takealot listing with daily content</div>
+                            <div class="action-owner">Owner: Founder/Creator | Deadline: Ongoing Days 30-90</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Secure 10+ verified customer reviews</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 60</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Optimize listing based on customer feedback</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 70</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Achieve R25,000 monthly revenue milestone</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 90</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Test customer reaction videos and user-generated content</div>
+                            <div class="action-owner">Owner: Founder/Creator | Deadline: Day 75</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="action-180" class="action-content">
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Scale to R50,000+ monthly revenue</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 120</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Build repeat customer base (30%+ repeat purchase rate)</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 150</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Evaluate second product addition based on customer requests</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 140</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Optimize operations: fulfillment, customer service, inventory</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 160</div>
+                        </div>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="action-details">
+                            <div class="action-title">Consider hiring part-time support for content or fulfillment</div>
+                            <div class="action-owner">Owner: Founder | Deadline: Day 180</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources & Budget -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    Resources & Budget Summary
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid var(--border-color);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Initial Investment</h3>
+                        <ul style="list-style: none; line-height: 2;">
+                            <li>💰 Product (MOQ &lt;100): <strong class="placeholder">R2,000 - R5,000</strong></li>
+                            <li>📱 No marketing budget (organic social)</li>
+                            <li>🛍️ Takealot seller setup: <strong>R0 (free)</strong></li>
+                            <li>📦 Packaging/labels: <strong class="placeholder">R500 - R1,000</strong></li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid var(--border-color);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Time Investment</h3>
+                        <ul style="list-style: none; line-height: 2;">
+                            <li>⏱️ Daily content creation: <strong>30 min/day</strong></li>
+                            <li>💬 DM management: <strong>30-60 min/day</strong></li>
+                            <li>📊 Platform monitoring: <strong>15 min/day</strong></li>
+                            <li>🎯 Total sprint time: <strong>~20 hours over 14 days</strong></li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid var(--border-color);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Required Tools</h3>
+                        <ul style="list-style: none; line-height: 2;">
+                            <li>📱 Smartphone with camera (existing)</li>
+                            <li>🎬 TikTok + Instagram accounts (free)</li>
+                            <li>🛒 Takealot seller account (free)</li>
+                            <li>📧 Email for customer communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Document Source Map -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <line x1="10" y1="9" x2="8" y2="9"/>
+                    </svg>
+                    Document Source Map
+                </h2>
+                <div class="source-map">
+                    <div class="source-item">
+                        <div class="source-filename">📄 14_Day_Beauty_Proof_Sprint_Cheat_Sheet.pdf</div>
+                        <div class="source-excerpt">"Goal: Get your FIRST paying customer. Nothing else matters. Product (Locked): Hydrating Niacinamide Facial Serum (white-label, small batch). Price: R120–R180 | Channel: TikTok + Instagram Reels + DMs."</div>
+                        <div class="source-usage"><strong>Used for:</strong> Executive summary, sprint timeline (Days 1-14), KPI targets (first customer, price point), daily video script, core sprint rules</div>
+                    </div>
+
+                    <div class="source-item">
+                        <div class="source-filename">📄 Step_1_Local_Playbook.pdf</div>
+                        <div class="source-excerpt">"Launch one beauty product fast and reach R50 000 per month without retail or large teams. One product only. One clear promise with visible results. Sell where people already trust buying."</div>
+                        <div class="source-usage"><strong>Used for:</strong> Strategic objective #4 (R50k revenue target), weekly focus breakdown, Takealot listing strategy, core principles (one product focus)</div>
+                    </div>
+
+                    <div class="source-item">
+                        <div class="source-filename">📄 Step_2_Content_Frameworks.pdf</div>
+                        <div class="source-excerpt">"Purpose of Content: Show proof, not polish. Educate before selling. Create trust at scale. High-Converting Content Types: Before and after (7 day use). Daily routine walkthrough. Ingredient explanation. Customer reaction videos."</div>
+                        <div class="source-usage"><strong>Used for:</strong> Strategic objective #2 (authentic trust-building), content posting rhythm (1 video/day), what to avoid (over-editing, influencer-only marketing), content library requirements</div>
+                    </div>
+
+                    <div class="source-item">
+                        <div class="source-filename">📄 Step_3_Product_Design.pdf</div>
+                        <div class="source-excerpt">"Product Promise: Hydration, glow, and barrier repair in one step. Recommended Actives: Niacinamide for skin tone and oil balance. Hyaluronic acid for hydration. Antioxidant botanical extract. Packaging Rules: Dropper bottle. Clean label. Clear benefit statement."</div>
+                        <div class="source-usage"><strong>Used for:</strong> Strategic objective #3 (focused product with visible results), product specification details, validation checklist criteria, packaging requirements</div>
+                    </div>
+
+                    <div class="source-item">
+                        <div class="source-filename">🔗 Cross-Document Synthesis</div>
+                        <div class="source-excerpt">Multiple documents emphasized "one product," "speed over perfection," "authenticity," and "direct customer validation" as recurring themes.</div>
+                        <div class="source-usage"><strong>Used for:</strong> Executive summary synthesis, strategic objective #5 (lean operations), risk mitigation strategies (content perfectionism), overall sprint philosophy</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sprint Rules Reminder -->
+            <section class="section">
+                <h2 class="section-title">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Sprint Rules (Non-Negotiable)
+                </h2>
+                <div style="background: linear-gradient(135deg, #79a8a2, #126270); color: white; padding: 2rem; border-radius: 8px;">
+                    <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+                        <li>🚫 <strong>No perfection.</strong> No comparing suppliers.</li>
+                        <li>🚫 <strong>No editing.</strong> No filters.</li>
+                        <li>✅ <strong>Awkward honesty beats confidence.</strong></li>
+                        <li>✅ <strong>Money spent equals tuition, not failure.</strong></li>
+                        <li>🎯 <strong>Sprint Success = One person tries to buy or buys.</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Set current timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString('en-ZA', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            const root = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (root.hasAttribute('data-theme')) {
+                root.removeAttribute('data-theme');
+                icon.textContent = '🌙';
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                icon.textContent = '☀️';
+            }
+        }
+
+        // Process Flow Chart
+        const flowNodes = [
+            { id: 1, title: 'Supplier Contact', desc: 'Contact 3 suppliers max. Confirm MOQ <100, Ship <14 days', owner: 'Founder', x: 50, y: 50 },
+            { id: 2, title: 'Order Product', desc: 'Pick fastest responder and place order immediately', owner: 'Founder', x: 250, y: 50 },
+            { id: 3, title: 'Product Testing', desc: 'Use serum twice daily, document honest observations', owner: 'Founder/Creator', x: 450, y: 50 },
+            { id: 4, title: 'Content Creation', desc: 'Film 1 raw video/day: what testing, why chose it, honest observation', owner: 'Founder/Creator', x: 650, y: 50 },
+            { id: 5, title: 'Daily Posting', desc: 'Post to TikTok + Instagram Reels. End with soft DM invite', owner: 'Founder/Creator', x: 350, y: 200 },
+            { id: 6, title: 'DM Engagement', desc: 'Respond to all DMs within 24 hours', owner: 'Founder', x: 550, y: 200 },
+            { id: 7, title: 'Sales Conversion', desc: 'Ask for sale: "Tiny test batch. R150. Want one?"', owner: 'Founder', x: 250, y: 350 },
+            { id: 8, title: 'First Customer', desc: 'Close first paying customer. Document learnings', owner: 'Founder', x: 450, y: 350 }
+        ];
+
+        const flowchart = document.getElementById('flowchart');
+        const tooltip = document.getElementById('flowTooltip');
+
+        flowNodes.forEach((node, index) => {
+            const nodeEl = document.createElement('div');
+            nodeEl.className = 'flow-node';
+            nodeEl.style.left = node.x + 'px';
+            nodeEl.style.top = node.y + 'px';
+            nodeEl.innerHTML = `
+                <div class="flow-node-title">${node.title}</div>
+                <div class="flow-node-desc">${node.desc.substring(0, 50)}...</div>
+                <div class="flow-node-owner">👤 ${node.owner}</div>
+            `;
+
+            nodeEl.addEventListener('mouseenter', (e) => {
+                tooltip.innerHTML = `
+                    <strong>${node.title}</strong><br>
+                    ${node.desc}<br>
+                    <em>Owner: ${node.owner}</em>
+                `;
+                tooltip.style.display = 'block';
+                tooltip.style.left = (node.x + 200) + 'px';
+                tooltip.style.top = node.y + 'px';
+            });
+
+            nodeEl.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+
+            flowchart.appendChild(nodeEl);
+        });
+
+        // Table Sorting
+        function sortTable(columnIndex) {
+            const table = document.getElementById('tasksTable');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                const aValue = a.cells[columnIndex].textContent.trim();
+                const bValue = b.cells[columnIndex].textContent.trim();
+                return aValue.localeCompare(bValue);
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Action Tabs
+        function switchTab(days) {
+            document.querySelectorAll('.action-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.action-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(`action-${days}`).classList.add('active');
+        }
+
+        // Checkbox Toggle
+        function toggleCheck(checkbox) {
+            checkbox.style.background = checkbox.style.background ? '' : 'var(--success-color)';
+            checkbox.innerHTML = checkbox.innerHTML ? '' : '✓';
+            checkbox.style.color = 'white';
+        }
+
+        // Export JSON
+        function exportJSON() {
+            const data = {
+                program: '14-Day Beauty Business Proof Sprint',
+                generated: new Date().toISOString(),
+                objectives: [
+                    'Achieve first paying customer within 14 days',
+                    'Build authentic trust through daily raw video content',
+                    'Launch Hydrating Niacinamide Facial Serum',
+                    'Scale to R50,000 monthly revenue',
+                    'Execute lean operations without retail'
+                ],
+                kpis: [
+                    { metric: 'First Paying Customer', target: '1', timeline: 'Day 11-14' },
+                    { metric: 'Daily Video Posts', target: '14', method: 'TikTok + Reels' },
+                    { metric: 'Product Price', target: 'R150', range: 'R120-R180' },
+                    { metric: 'MOQ', target: '<100', measurement: 'Supplier compliance' },
+                    { metric: 'Monthly Revenue', target: 'R50k', frequency: 'Month 2-3' }
+                ],
+                timeline: {
+                    phase1: 'Days 1-2: Product Sourcing',
+                    phase2: 'Days 3-5: Testing & Content',
+                    phase3: 'Days 6-10: Content Distribution',
+                    phase4: 'Days 11-14: Sales Conversion'
+                }
+            };
+
+            const json = JSON.stringify(data, null, 2);
+            navigator.clipboard.writeText(json).then(() => {
+                alert('✅ JSON data copied to clipboard!');
+            });
+        }
+
+        // Print styles
+        window.addEventListener('beforeprint', () => {
+            document.body.style.background = 'white';
+        });
+    </script>
+</body>
+</html>
+```
